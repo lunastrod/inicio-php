@@ -1,0 +1,221 @@
+:root {
+    --bg:           #0e0e0e;
+    --bg-section:   #161616;
+    --border:       #2a2a2a;
+    --accent:       #c8f135;
+    --accent-dark:  #9bbf1a;
+    --text:         #e8e8e8;
+    --text-muted:   #666;
+    --font-mono:    'IBM Plex Mono', monospace;
+    --font-ui:      'Space Grotesk', sans-serif;
+    --radius:       4px;
+    --gap:          1.5rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-ui);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+header h1::before {
+    content: '> ';
+    color: var(--text-muted);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.categoria {
+    background-color: var(--bg-section);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--gap);
+    flex: 1 1 280px;
+    max-width: 480px;
+}
+
+.categoria__titulo {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.categoria__enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.btn-enlace {
+    display: inline-block;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text);
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.45rem 0.9rem;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-enlace:hover {
+    color: var(--bg);
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-enlace:active {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    .btn-enlace {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* header actions */
+
+header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.btn-nuevo {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--accent);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius);
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-nuevo:hover {
+    color: var(--bg);
+    background-color: var(--accent);
+}
+
+.header__back {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.15s ease;
+}
+
+.header__back::before {
+    content: '<- ';
+}
+
+.header__back:hover {
+    color: var(--text);
+}
+
+/* form */
+
+.form-wrapper {
+    max-width: 520px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.field__label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.field__input {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    padding: 0.55rem 0.75rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+    width: 100%;
+}
+
+.field__input::placeholder {
+    color: var(--text-muted);
+}
+
+.field__input:focus {
+    border-color: var(--accent);
+}
+
+.btn-submit {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--bg);
+    background-color: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-dark);
+}
