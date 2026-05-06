@@ -1,0 +1,6 @@
+<?php
+$host     = 'sql203.infinityfree.com';
+$port     = 3306;
+$db       = 'if0_41845437_dashboard_db';
+$user     = 'if0_41845437';
+$password = 'DB_PASS_PLACEHOLDER';

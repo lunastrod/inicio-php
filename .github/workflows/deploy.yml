@@ -1,0 +1,26 @@
+name: Deploy to InfinityFree
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: Deploying htdocs Folder
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v4
+
+    - name: Inject Database Password
+      run: |
+        sed "s/DB_PASS_PLACEHOLDER/${{ secrets.DB_PASSWORD }}/g" htdocs/config.php.template > htdocs/config.php
+
+    - name: Sync htdocs to Server
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftpupload.net
+        username: if0_41845437
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./htdocs/
+        server-dir: ./htdocs/

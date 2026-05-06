@@ -1,6 +1,6 @@
-<?php require 'includes/conexion.php'; ?>
+<?php require 'includes/conn.php'; ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,28 +14,27 @@
 
 <header>
     <h1>Dashboard</h1>
-    <a href="nuevo.php" class="btn-nuevo">+ nuevo enlace</a>
+    <a href="nuevo.php" class="btn-new">+ new link</a>
 </header>
 
 <main>
 <?php
-
-$result = $mysqli->query("SELECT DISTINCT tipo FROM enlaces ORDER BY tipo ASC");
+$result = $mysqli->query("SELECT DISTINCT category FROM links ORDER BY category ASC");
 
 while ($row = $result->fetch_assoc()):
-    $tipo = $row['tipo'];
+    $category = $row['category'];
 
-    $stmt = $mysqli->prepare("SELECT nombre, url FROM enlaces WHERE tipo = ? ORDER BY nombre ASC");
-    $stmt->bind_param('s', $tipo);
+    $stmt = $mysqli->prepare("SELECT name, url FROM links WHERE category = ? ORDER BY name ASC");
+    $stmt->bind_param('s', $category);
     $stmt->execute();
-    $enlaces = $stmt->get_result();
+    $links = $stmt->get_result();
 ?>
-    <section class="categoria">
-        <h2 class="categoria__titulo"><?= htmlspecialchars($tipo) ?></h2>
-        <div class="categoria__enlaces">
-            <?php while ($enlace = $enlaces->fetch_assoc()): ?>
-                <a href="<?= htmlspecialchars($enlace['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-enlace">
-                    <?= htmlspecialchars($enlace['nombre']) ?>
+    <section class="category">
+        <h2 class="category__title"><?= htmlspecialchars($category) ?></h2>
+        <div class="category__links">
+            <?php while ($link = $links->fetch_assoc()): ?>
+                <a href="<?= htmlspecialchars($link['url']) ?>" target="_blank" rel="noopener noreferrer" class="btn-link">
+                    <?= htmlspecialchars($link['name']) ?>
                 </a>
             <?php endwhile; ?>
         </div>
