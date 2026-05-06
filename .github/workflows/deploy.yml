@@ -14,7 +14,7 @@ jobs:
 
     - name: Inject Database Password
       run: |
-        sed "s/DB_PASS_PLACEHOLDER/${{ secrets.DB_PASSWORD }}/g" htdocs/config.php.template > htdocs/config.php
+        sed "s/DB_PASS_PLACEHOLDER/${{ secrets.DB_PASSWORD }}/g" htdocs/includes/config.php.template > htdocs/includes/config.php
 
     - name: Sync htdocs to Server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
