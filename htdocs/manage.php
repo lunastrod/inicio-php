@@ -8,6 +8,7 @@ require_once 'includes/conn.php';
     <meta charset="UTF-8">
     <title>Manage Links</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/png" href="img/icon.png">
 </head>
 <body>
     <header>
